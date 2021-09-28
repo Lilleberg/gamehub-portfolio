@@ -1,0 +1,263 @@
+/*
+Colours:
+Black text: #040b17
+Background grey: #293238
+Dark blue: #11204a
+Green: #1de9b6
+Grey-ish: #DDDDDD
+White-ish; text: #eeedec
+*/
+
+@import "imports/typography.css";
+@import "imports/desktop_global.css";
+
+/*
+  -- MAIN CONTENT --
+*/
+.main-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.2fr;
+  justify-items: left;
+  column-gap: 50px;
+  margin: 0px 50px;
+}
+
+.page-title {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+h1 {
+  margin: 20px 0px 0px 0px;
+}
+
+h2, h3 {
+  font-size: 1.3rem;
+}
+
+.page-title p {
+  margin: 5px 0px 10px 0px;
+  opacity: 70%;
+  font-size: 0.8rem;
+}
+
+.payment-info, .about-seller {
+  margin-top: 0rem;
+}
+
+.about-seller {
+  margin-left: 3rem;
+}
+
+h2 {
+  margin: 30px 0px 10px 0px;
+}
+
+.game-info p:last-child {
+  margin: 10px 0px 20px 0px;
+}
+
+.product-image {
+  max-width: 350px;
+}
+
+.price {
+  font-size: 2em;
+  font-weight: 500;
+  margin: 0px 0px 50px 0px;
+}
+
+.payment-info div p:nth-child(1) {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #1de9b6;
+}
+
+.payment-info div {
+  margin-top: 10em;
+}
+
+.payment-info div p {
+  line-height: 0.5em;
+}
+
+.about-seller {
+  border-left: 2px solid;
+  padding-left: 15px;
+  height: 55%;
+}
+
+.about-seller p:nth-child(2) {
+  font-weight: 500;
+  margin-bottom: 1.2em;
+}
+
+.member-since {
+  line-height: 0.5em;
+}
+
+.rating {
+  margin: 1.2em 0px 0px 0px;
+}
+
+.star {
+  display: flex;
+  align-items: baseline;
+  margin: 0px;
+}
+
+.fa-star, .fa-star-half-alt {
+  font-size: 0.8em;
+  margin-right: 2px;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+}
+
+.fa-comment-alt {
+  margin-right: 5px;
+}
+
+.message p:last-child {
+  font-weight: 300;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+
+  .top-header, .main-content, .footer-content {
+    margin: 0px 40px;
+  }
+
+  .main-content {
+    grid-template-columns: 1fr 0.8fr 1fr;
+    column-gap: 30px;
+    justify-items: center;
+  }
+
+  .payment-info div {
+    margin-top: 6em;
+  }
+
+  .information {
+    justify-self: center;
+  }
+
+  .footer-content {
+    margin-top: 10px;
+  }
+}
+
+/*
+  -- MEDIUM SCREEN --
+*/
+@media only screen and (min-width: 551px) and (max-width: 900px) {
+  .next-img {
+    display: none;
+  }
+
+  .main-content {
+    grid-template-columns: 1.5fr 1fr;
+    column-gap: 20px;
+    justify-items: center;
+  }
+
+  h1 {
+    font-size: 1.2em;
+  }
+
+  .main-content h3 {
+    font-size: 1.1em;
+  }
+
+  .about-seller p {
+    font-size: 0.9em;
+  }
+
+  .payment-info div {
+    margin-top: 3em;
+  }
+
+  .price {
+    font-size: 2em;
+  }
+
+  .payment-info div p, .payment-info div p:nth-child(1) {
+    font-size: 1em;
+  }
+
+  .about-seller * {
+    margin: 0px;
+    line-height: 1.3em;
+  }
+
+  .message p:last-child {
+    margin: 0px 0px 0px 5px;
+  }
+
+  .message {
+    display: flex;
+    align-items: center;
+  }
+
+  .about-seller {
+    margin: 20px 0 10px 0;
+    padding: 0px;
+    border-left: none;
+    justify-self: start;
+  }
+}
+
+/*
+  -- SMALL SCREEN --
+*/
+@media only screen and (max-width: 550px) {
+  .next-img {
+    display: none;
+  }
+
+  .main-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    margin: 0px 60px;
+  }
+
+  h1 {
+    font-size: 1.2em;
+  }
+
+  .about-seller h3 {
+    font-size: 1.2em;
+  }
+
+  .price {
+    font-size: 1.2em;
+    margin: 0px 0px 10px 0px;
+  }
+
+  .payment-info {
+    margin: 0px;
+  }
+
+  .payment-info div {
+    margin-top: 40px;
+  }
+
+  .payment-info div p:nth-child(1) {
+    font-size: 1em;
+  }
+
+  .button {
+    font-size: 0.9em;
+  }
+
+  .about-seller {
+    border-left: none;
+      margin: 0;
+      padding: 0;
+  }
+}

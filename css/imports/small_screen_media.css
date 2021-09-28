@@ -1,0 +1,99 @@
+@media only screen and (max-width: 500px) {
+
+  footer .logo, .sign-up, .navbar, .navbar.large {
+    display: none;
+  }
+
+  #hamburger-menu {
+    display: block;
+  }
+
+  .fa-bars {
+    display: block;
+    margin: 10px 0px 5px 30px;
+  }
+
+  footer .logo-copyright, .sign-up, nav, .filters_line {
+    display: none;
+  }
+
+  .navbar ul, .navbar li {
+    margin: 0px;
+  }
+
+  .navbar, .navbar ul {
+    padding: 0;
+  }
+
+  .navbar ul {
+    display: grid;
+    text-align: center;
+    background-color: #eeedec;
+    border: 2px solid;
+    border-color: #1de9b6;
+    position: absolute;
+  }
+
+  .navbar li {
+    font-size: 1em;
+    padding: 10px;
+    width: 200px;
+  }
+
+  .navbar li:nth-child(2n) {
+    background-color: var(--light-grey);
+  }
+
+  .search-bar {
+    width: 170px;
+    height: 30px;
+  }
+
+  .header-logo .logo {
+    max-width: 100px;
+  }
+
+  .log-in, .profile-icon, #cart-icon {
+    font-size: 0.7em;
+  }
+
+  .top-header, .footer-content {
+    margin: 0px 20px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  /*footer*/
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    margin: 10px 0px 10px 30px;
+  }
+
+  .contact-info a, .information h3 {
+    font-size: 1.1em;
+  }
+
+  .information div p:first-child {
+    margin-top: 7px;
+  }
+
+  /*search*/
+
+  .search-bar {
+    width: 150px;
+    height: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .fa-search {
+    font-size: 1.5rem;
+  }
+}

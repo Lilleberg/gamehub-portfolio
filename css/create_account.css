@@ -1,0 +1,136 @@
+ /*
+Colours:
+Black text: #040b17
+Background grey: #293238
+Dark blue: #11204a
+Green: #1de9b6
+Grey-ish: #DDDDDD
+White-ish; text: #eeedec
+*/
+
+@import "imports/typography.css";
+@import "imports/desktop_global.css";
+
+/*
+  -- MAIN --
+*/
+.main-content {
+  color: var(--black-text);
+  background-color: var(--light-grey);
+  border: 2px solid;
+  border-radius: 6px;
+  border-color: var(--green);
+  padding: 10px;
+  margin: 40px auto;
+  max-width: 320px;
+}
+
+h1 {
+  margin: 0px 0px 20px 0px;
+  text-align: center;
+}
+
+/*form*/
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  margin: 2px 0px 10px 0px;
+  height: 1.6em;
+  border: 2px solid var(--green);
+}
+
+label {
+  font-size: 0.9em;
+}
+
+.main-content div:not(:first-of-type) {
+  margin-top: 10px;
+}
+
+.fa-question-circle {
+  float: right;
+  margin-right: 5px;
+  font-size: 0.9em;
+}
+
+/*under form part*/
+.main-content div {
+  display: inline-flex;
+  margin: 0px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-content div * {
+  margin: 0px 3px;
+}
+
+span {
+  text-decoration: underline;
+}
+
+/*https://www.html5canvastutorials.com/blog/2012/06/custom-form-radio-checkbox/*/
+#checkbox1, #checkbox2, #checkbox3 {
+  appearance: none;
+  background-color: var(--white);
+  border: 2px solid var(--green);
+  padding: 9px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+}
+
+#checkbox1:checked:after,
+#checkbox2:checked:after,
+#checkbox3:checked:after {
+  content: "\2714";
+  font-size: 14px;
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  color: var(--dark-blue);
+}
+
+.main-content div:last-child {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.main-content .button {
+  padding: 5px 30px;
+}
+
+.fb, .ggl {
+  color: var(--white);
+  padding: 5px 40px;
+}
+
+.fb {
+  background-color: #3B5998;
+  border-color: #3B5998;
+}
+
+.ggl {
+  background-color: #DB4437;
+  border-color: #DB4437;
+}
+
+@media only screen and (max-width: 500px) {
+  .main-content {
+    max-width: 290px;
+  }
+
+  .main-content label, .main-content p {
+    font-size: 0.9em;
+  }
+
+  .button {
+    font-size: 0.9em;;
+  }
+}

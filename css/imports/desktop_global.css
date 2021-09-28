@@ -1,0 +1,307 @@
+:root {
+  --black-text: #040b17;
+  --green: #1de9b6;
+  --white: #eeedec;
+  --dark-blue: #11204a;
+  --background-grey: #293238;
+  --light-grey: #dddddd;
+}
+
+/*
+  -- BIG GRID --
+*/
+header {
+  grid-area: header;
+  background: var(--light-grey);
+}
+
+nav {
+  grid-area: nav;
+  background: var(--white);
+}
+
+main {
+  grid-area: main;
+  background: var(--background-grey);
+  padding-bottom: 20px;
+}
+
+footer {
+  grid-area: footer;
+  background: var(--light-grey);
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+  'header'
+  'nav'
+  'main'
+  'footer';
+  margin: 0px;
+}
+
+img {
+  width: 100%;
+}
+
+.loader {
+  grid-column: 2 / 3;
+  grid-row: 2 / 2;
+  margin: 100px 0 100px 0;
+  width: 80px;
+  height: 80px;
+  border: 12px solid var(--green);
+  border-top: 15px solid var(--dark-blue);
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/*
+  -- HEADER --
+*/
+.top-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin: 10px;
+  gap: 10px;
+  align-items: center
+}
+
+.logo {
+  width: 140px;
+  margin-top: 5px;
+}
+
+#cart-icon, .profile-icon {
+  color: var(--dark-blue);
+  cursor: pointer;
+}
+
+.top-header, .main-content, .footer-content {
+  margin: 0px 100px;
+}
+
+/*
+ -- CART --
+*/
+
+.cart-heading {
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin: 0 0 20px 0;
+ }
+
+.cart-container {
+  z-index: 1;
+  position: absolute;
+  top: 80px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 2px solid var(--green);
+  padding: 10px 10px 20px 10px;
+  background-color: var(--white);
+  display: none;
+}
+
+.cart-item {
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 10px;
+  align-items: center;
+  justify-items: start;
+  padding: 5px;
+  margin-bottom: 10px;
+  background-color: var(--light-grey);
+}
+
+.cart img {
+  border-radius: 10%;
+}
+
+.cart-name-price {
+  text-align: left;
+}
+
+.cart-name-price * {
+  margin: 0px;
+}
+
+.game-in-cart-name {
+  margin-bottom: 10px;
+}
+
+.total-sum {
+  display: flex;
+  margin: 10px 0;
+  justify-content: space-between;
+}
+
+.total-sum p {
+  font-size: 1rem;
+}
+
+.total-price, .game-in-cart-name {
+  font-weight: 500;
+}
+
+.total-sum p:last-of-type{
+  font-weight: 400;
+}
+
+/*
+  -- BUTTONS --
+*/
+.button {
+  background-color: var(--green);
+  padding: 5px 12px;
+  border: 2px solid;
+  border-color: var(--green);
+  border-radius: 5px;
+  margin: 0px;
+  color: var(--black-text);
+  cursor: pointer;
+}
+
+.sign-up, .log-in {
+  color: #1de9b6;
+  background-color: var(--dark-blue);
+  border-color: var(--dark-blue);
+}
+
+.button:hover {
+  background-color: var(--white);
+  color: var(--dark-blue);
+}
+
+.sign-up:hover, .log-in:hover {
+  background-color: var(--white);
+  color: var(--dark-blue);
+  border: 2px solid;
+}
+
+.log-in, #cart-icon, .profile-icon {
+  margin-left: 15px;
+}
+
+.empty {
+  font-style: italic;
+  margin: 10px 0 20px 0;
+}
+
+/*
+  -- NAV --
+*/
+.current {
+  font-weight: 600;
+}
+
+.navbar {
+  padding: 2px 0px;
+  display: none;
+  z-index: 1;
+}
+
+.navbar.large {
+  display: block;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar li {
+  list-style-type: none;
+}
+
+.navbar li {
+  margin: 0px 10px;
+}
+
+#hamburger-menu, .fa-bars {
+  display: none;
+}
+
+/*
+  -- SEARCH BAR --
+*/
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.search-icon {
+  color: var(--black-text);
+  margin-left: 15px;
+}
+
+input:focus {
+  outline: none;
+  font-style: normal;
+}
+
+.search-bar {
+  width: 300px;
+  height: 2rem;
+  border: 2px solid var(--black-text);
+  border-radius: 40px;
+  padding-left: 7px;
+}
+
+.add-to-cart {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/*
+  -- FOOTER --
+*/
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) auto;
+  margin-top: 10px;
+  padding-bottom: 20px;
+}
+
+.information h3 {
+  margin: 0px;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-rows: 0.5fr, repeat(3, 1fr);
+}
+
+.contact-method {
+  display: flex;
+}
+
+.contact-method i {
+  margin-right: 5px;
+}
+
+.contact-method p {
+  margin: 3px 0px;
+}
+
+.information p {
+  margin: 1px 0px 0px 0px;
+}
+
+.logo-copyright {
+  display: grid;
+  grid-template-rows: 1fr, auto;
+  justify-items: center;
+}

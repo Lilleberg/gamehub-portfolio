@@ -1,0 +1,164 @@
+@import "imports/typography.css";
+@import "imports/desktop_global.css";
+
+/*
+  -- MAIN, PRODUCTS --
+*/
+h1 {
+  border-bottom: 3px solid;
+  max-width: 30%;
+  padding-bottom: 5px;
+}
+
+.main-content {
+  margin-bottom: 85px;
+}
+
+.products {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.product_item {
+  max-width: 200px;
+}
+
+.products h2, .products a {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin: 0px;
+}
+
+.products p {
+  margin: 3px 0px;
+  opacity: 80%;
+}
+
+.products a {
+  color: #eeedec
+}
+
+.products .price {
+  margin: 20px 0 10px 0;
+  opacity: 100%;
+  font-weight: 500;
+  font-size: 1.2em;
+}
+
+.prod_name {
+  font-weight: 500;
+}
+
+.products_buy {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1300px) {
+
+  .top-header, .main-content, .footer-content {
+    margin: 0px 40px;
+  }
+
+  .footer-content {
+    margin-top: 10px;
+  }
+
+  .products a, .products h2 {
+    font-size: 1.1em;
+  }
+
+  .products div p {
+    font-size: 0.8em;
+  }
+
+  #filters-box, .filter-label {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 900px) {
+
+  h1 {
+    max-width: 70%;
+  }
+
+  /*main*/
+  .main-content {
+    margin: auto 20px;
+  }
+  .products {
+    justify-content: start;
+    margin-left: 50px;
+  }
+
+  .product_item {
+    max-width: 170px;
+  }
+
+  .products .price {
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+
+  .product_item .products_buy {
+    grid-template-columns: 1fr;
+  }
+
+  .add-to-cart {
+    width: 100%;
+  }
+}
+
+/*
+-- SMALL SCREEN --
+*/
+@media only screen and (max-width: 500px) {
+
+  h1 {
+    max-width: 80%;
+  }
+
+  /*main*/
+  .main-content {
+    margin: 0 10px;
+  }
+
+  .products {
+    justify-items: center;
+    justify-self: center;
+    gap: 30px;
+  }
+
+  .product_item {
+    max-width: 170px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .main-content {
+    margin: 0 10px;
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-items: center;
+  }
+
+  .products_buy {
+    grid-template-columns: 1fr;
+  }
+
+  .products_buy .price {
+    margin-top: 10px;
+  }
+
+  .add-to-cart {
+    width: 100%;
+  }
+}
