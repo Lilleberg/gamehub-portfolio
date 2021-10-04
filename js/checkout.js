@@ -10,31 +10,32 @@ if (!cartItems) {
   totalSum.style.display = "none";
 }
 
-try {
+let itemPrice = 0;
 
-  cartItems.forEach(function (cartElement) {
-    priceItems += parseInt(cartElement.price);
+try {
+  cartItems.forEach(function (item) {
+    itemPrice += parseInt(item.prices.price);
 
     itemsContainer.innerHTML += `
       <div class="product">
-        <img src="${cartElement.image}" style="max-width: 80px"; alt="Product image of ${cartItems.name}">
+        <img src="${item.images[0].src}" style="max-width: 80px"; alt="Product image of ${cartItems.name}">
       <div>
-        <a href="product.html">${cartElement.name}</a>
+        <a href="product.html">${item.name}</a>
         <p class="tags">Action, FPS, multiplayer, PS3</p>
       </div>
       <div class="price-remove">
-        <p>${cartElement.price},-</p>
+        <p>${item.prices.price},-</p>
         <p><i class="fas fa-times-circle"></i></p>
       </div>
     </div>`;
   });
 
-  let total = priceItems + 29;
+  let sumTotal = itemPrice + 29;
   totalSum.innerHTML += `
     <h2>Total sum</h2>
     <div class="price">
       <h3>Price</h3>
-      <p>${priceItems},-</p>
+      <p>${itemPrice},-</p>
     </div>
     <div class="delivery-cost">
       <h3>Delivery cost</h3>
@@ -42,7 +43,7 @@ try {
     </div>
     <div class="sum">
       <h3>Total Sum</h3>
-      <p>${total},-</p>
+      <p>${sumTotal},-</p>
     </div>
     <div class="pay-info">
       <h3>Payment info</h3>

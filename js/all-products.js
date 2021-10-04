@@ -22,11 +22,20 @@ async function getAllProducts(url) {
 
     for (let i = 0; i < products.length; i++) {
       game = products[i];
+
       productArr.push(game);
 
-      createHTML(products);
+      createHTMLAll(productArr);
     }
 
+    const buttons = document.querySelectorAll(".add-to-cart");
+    buttons.forEach(function (button) {
+      button.onclick = function (event) {
+        const addItems = products.find(item => item.id === event.target.dataset.product);
+        productsCart.push(addItems);
+        localStorage.setItem("cart", JSON.stringify(productsCart));
+      }
+    });
 
   } catch (error) {
     console.log("ERROR: " + error);
@@ -35,6 +44,21 @@ async function getAllProducts(url) {
 }
 
 getAllProducts("https://gamehub-maria.digital/wp-json/wc/store/products");
+
+function createHTMLAll(prodArray) {
+  container.innerHTML = "";
+  prodArray.forEach(function (game) {
+    container.innerHTML +=
+      `<div class="product">
+      <a href="product.html?id=${game.id}"><img src="${game.images[0].src}" class="img-product"></a>
+      <div class="sub-content">
+        <a href="product.html?id=${game.id}">${game.name}</a>
+        <p class="price">${game.prices.price}</p>
+        <button class="button add-to-cart" data-product="${game.id}">Buy</button>
+      </div>
+    </div>`;
+  });
+}
 
 function usedIsChecked() {
   usedArr = [];
@@ -228,21 +252,6 @@ document.querySelector(".za").addEventListener("click", function () {
     }
   }
 });
-
-function createHTML(prodArray) {
-  container.innerHTML = "";
-  prodArray.forEach(function (game) {
-    container.innerHTML +=
-      `<div class="product">
-      <a href="product.html?id=${game.id}"><img src="${game.images[0].src}" class="img-product"></a>
-      <div class="sub-content">
-        <a href="product.html?id=${game.id}">${game.name}</a>
-        <p class="price">${game.price_html}</p>
-        <button class="button add-to-cart" data-game="${game.name}" data-price="${game.prices.price}" data-image="${game.images[0].src}">BUY</button>
-      </div>
-    </div>`;
-  });
-}
 
 removeFilters.addEventListener("click", function () {
   game = [];

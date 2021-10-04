@@ -1,70 +1,36 @@
 const containerUsed = document.querySelector(".used-games");
 const containerNew = document.querySelector(".new-releases");
 const cartIcon = document.querySelector("#cart-icon");
-const buttons = document.querySelectorAll(".add-to-cart");
 const cartContainer = document.querySelector(".cart-container");
 const cart = document.querySelector(".cart");
 const sumTotal = document.querySelector(".total-sum");
 
 let productsCart = [];
 let gameObj = {};
-let price = 0;
-let priceItems = 0;
-let total = 0;
 
-async function getProducts(url) {
-  try {
+if (JSON.parse(localStorage.getItem("cart")) === null) {
+  productsCart = [];
+  console.log("Tomt");
+}
+else {
+  productsCart = JSON.parse(localStorage.getItem("cart"));
+}
 
-    const response = await fetch(url);
-    const products = await response.json();
+function addProducts() {
+  for (let i = 0; i < productsCart.length; i++) {
+    let game = productsCart[i];
+    console.log(game);
+    createHTML(cart, game);
 
-    const buttons = document.querySelectorAll(".add-to-cart");
-
-    buttons.forEach(item => {
-      item.addEventListener("click", function (event) {
-
-
-        console.log("ADDED TO CART", item);
-
-        gameObj = {};
-
-        gameObj = {
-          name: item.dataset.game,
-          price: item.dataset.price,
-          image: item.dataset.image,
-        };
-
-        productsCart.push(gameObj);
-
-        cartContainer.style.display = "block";
-
-        setTimeout(function () {
-          cartContainer.style.display = "none";
-        }, 5000);
-
-        let sum = parseInt(gameObj.price);
-        total += sum;
-
-        cart.innerHTML += `
-            <div class="cart-item">
-            <div><img src="${gameObj.image}" alt="product image of ${gameObj.name}" style="max-width: 80px";></div>
-              <div class="cart-name-price">
-                <p class="game-in-cart-name">${gameObj.name}</p>
-                <p class="game-in-cart-price">${gameObj.price},-</p>
-              </div>
-            </div>`;
-        sumTotal.innerHTML = `<p class="total-price">Sum:</p><p>${total},-</p>`;
-        localStorage.setItem("cart", JSON.stringify(productsCart));
-      });
-    });
-
-  } catch (error) {
-    console.log("ERROR:" + error);
-    mainSection.innerHTML += errorMessage();
+    let price = parseInt(game.prices.price);
+    console.log(price);
+    let total;
+    total += price;
+    sumTotal.innerHTML = `<p class="total-price">Sum:</p><p>${total},-</p>`;
   }
 }
 
-getProducts("https://gamehub-maria.digital/wp-json/wc/store/products");
+addProducts();
 
 cartIcon.onclick = function () {
   if (cartContainer.style.display === "block") {
@@ -72,4 +38,15 @@ cartIcon.onclick = function () {
   } else {
     cartContainer.style.display = "block";
   }
+}
+
+function createHTML(cart, game) {
+  cart.innerHTML += `
+  <div class="cart-item">
+  <div><img src="${game.images[0].src}" alt="product image of ${game.name}" style="max-width: 80px";></div>
+    <div class="cart-name-price">
+      <p class="game-in-cart-name">${game.name}</p>
+      <p class="game-in-cart-price">${game.prices.price},-</p>
+    </div>
+  </div>`;
 }

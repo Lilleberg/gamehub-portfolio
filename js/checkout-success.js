@@ -3,25 +3,26 @@ const gameInfo = document.querySelector(".info");
 const costInfo = document.querySelector(".cost-info");
 const continueShop = document.querySelector(".cont");
 
-let sumItems = 0;
+let itemCost = 0;
 
 cartItems.forEach(function (item) {
-  sumItems += parseInt(item.price);
+  itemCost += parseInt(item.prices.price);
 
   gameInfo.innerHTML +=
     `<div class="game">
       <p>${item.name}</p>
       <p>1</p>
-      <p>${item.price},-</p>
+      <p>${item.prices.price},-</p>
     </div>`;
 });
 
-let totalSum = sumItems + 29;
+let totalSum = 0;
+totalSum += itemCost;
 
 costInfo.innerHTML +=
   `<div>
     <p>Item(s)</p>
-    <p>${sumItems},-</p>
+    <p>${itemCost},-</p>
   </div>
   <div>
     <p>Shipping</p>

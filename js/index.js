@@ -1,18 +1,5 @@
 const mainSection = document.querySelector(".main-content");
-//const containerUsed = document.querySelector(".used-games");
-//const containerNew = document.querySelector(".new-releases");
-//const cartIcon = document.querySelector("#cart-icon");
-//const buttons = document.querySelectorAll(".add-to-cart");
-//const cartContainer = document.querySelector(".cart-container");
-//const cart = document.querySelector(".cart");
-//const sumTotal = document.querySelector(".total-sum");
 const cartItems = JSON.parse(localStorage.getItem("cart"));
-
-//let productsCart = [];
-//let price = 0;
-//let priceItems = 0;
-//let total = 0;
-//let gameObj = {};
 
 console.log(localStorage);
 
@@ -21,7 +8,6 @@ async function getProducts(url) {
   try {
     const response = await fetch(url);
     const products = await response.json();
-    console.log(products);
 
     for (let i = 0; i < products.length; i++) {
       const game = products[i];
@@ -36,6 +22,13 @@ async function getProducts(url) {
     }
 
     const buttons = document.querySelectorAll(".add-to-cart");
+    buttons.forEach(function (button) {
+      button.onclick = function (event) {
+        const addItems = products.find(item => item.id === event.target.dataset.product);
+        productsCart.push(addItems);
+        localStorage.setItem("cart", JSON.stringify(productsCart));
+      }
+    });
 
   } catch (error) {
     console.log("ERROR:" + error);
@@ -52,7 +45,7 @@ function createHTML(container, game) {
       <div class="sub-content">
         <a href="product.html?id=${game.id}">${game.name}</a>
         <p class="price">${game.price_html}</p>
-        <button class="button add-to-cart" data-game="${game.name}" data-price="${game.prices.price}" data-image="${game.images[0].src}">${game.add_to_cart.text}</button>
+        <button class="button add-to-cart" data-product="${game.id}">${game.add_to_cart.text}</button>
       </div>
     </div>`;
 }
