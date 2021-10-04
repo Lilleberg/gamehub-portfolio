@@ -14,6 +14,8 @@ const cartItems = JSON.parse(localStorage.getItem("cart"));
 //let total = 0;
 //let gameObj = {};
 
+console.log(localStorage);
+
 async function getProducts(url) {
 
   try {
@@ -25,26 +27,11 @@ async function getProducts(url) {
       const game = products[i];
 
       if (game.tags[0].name === "used") {
-        containerUsed.innerHTML += `
-          <div class="game">
-            <a href="product.html?id=${game.id}"><img src="${game.images[0].src}" class="img-product"</a>
-            <div class="sub-content">
-              <a href="product.html?id=${game.id}">${game.name}</a>
-              <p class="price">${game.price_html}</p>
-              <button class="button add-to-cart" data-game="${game.name}" data-price="${game.prices.price}" data-image="${game.images[0].src}">${game.add_to_cart.text}</button>
-            </div>
-          </div>`;
+        createHTML(containerUsed, game);
       }
+
       if (game.tags[0].name === "new") {
-        containerNew.innerHTML += `
-          <div class="game">
-            <a href="product.html?id=${game.id}"><img src="${game.images[0].src}" class="img-product"</a>
-              <div class="sub-content">
-                <a href="product.html?id=${game.id}">${game.name}</a>
-                <p class="price">${game.price_html}</p>
-                <button class="button add-to-cart" data-game="${game.name}" data-price="${game.prices.price}" data-image="${game.images[0].src}">${game.add_to_cart.text}</button>
-              </div>
-          </div>`;
+        createHTML(containerNew, game);
       }
     }
 
@@ -58,3 +45,14 @@ async function getProducts(url) {
 
 getProducts("https://gamehub-maria.digital/wp-json/wc/store/products");
 
+function createHTML(container, game) {
+  container.innerHTML += `
+    <div class="game">
+      <a href="product.html?id=${game.id}"><img src="${game.images[0].src}" class="img-product"</a>
+      <div class="sub-content">
+        <a href="product.html?id=${game.id}">${game.name}</a>
+        <p class="price">${game.price_html}</p>
+        <button class="button add-to-cart" data-game="${game.name}" data-price="${game.prices.price}" data-image="${game.images[0].src}">${game.add_to_cart.text}</button>
+      </div>
+    </div>`;
+}

@@ -20,7 +20,7 @@ h1, .new-releases h2, .news h3 {
   font-size: 1.8rem;
 }
 
-.contact-info a, footer h3 {
+.contact-info a, footer h4 {
   font-size: 1.3em;
   font-weight: bold;
 }

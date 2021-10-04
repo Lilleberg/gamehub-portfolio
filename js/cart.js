@@ -6,16 +6,15 @@ const cartContainer = document.querySelector(".cart-container");
 const cart = document.querySelector(".cart");
 const sumTotal = document.querySelector(".total-sum");
 
-
 let productsCart = [];
+let gameObj = {};
 let price = 0;
 let priceItems = 0;
 let total = 0;
-let gameObj = {};
 
 async function getProducts(url) {
-
   try {
+
     const response = await fetch(url);
     const products = await response.json();
 
@@ -23,6 +22,7 @@ async function getProducts(url) {
 
     buttons.forEach(item => {
       item.addEventListener("click", function (event) {
+
 
         console.log("ADDED TO CART", item);
 
