@@ -24,9 +24,10 @@ async function getProducts(url) {
     const buttons = document.querySelectorAll(".add-to-cart");
     buttons.forEach(function (button) {
       button.onclick = function (event) {
-        const addItems = products.find(item => item.id === event.target.dataset.product);
+        const addItems = products.find(item => item.id === parseInt(event.target.dataset.product));
         productsCart.push(addItems);
         localStorage.setItem("cart", JSON.stringify(productsCart));
+        window.location.href = window.location.href;
       }
     });
 

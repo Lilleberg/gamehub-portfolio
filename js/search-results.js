@@ -7,7 +7,6 @@ async function getSearchResults(url) {
   try {
     const response = await fetch(url);
     const products = await response.json();
-    //console.log(products);
 
     for (let i = 0; i < products.length; i++) {
       game = products[i];
@@ -25,6 +24,17 @@ async function getSearchResults(url) {
         }
       }
     }
+
+    const buttons = document.querySelectorAll(".add-to-cart");
+    buttons.forEach(function (button) {
+      button.onclick = async function (event) {
+        const addItems = products.find(item => item.id === parseInt(event.target.dataset.product));
+
+        productsCart.push(addItems);
+        localStorage.setItem("cart", JSON.stringify(productsCart));
+      }
+    });
+
   } catch (error) {
     console.log("ERROR: " + error);
     container.innerHTML = errorMessage();
@@ -41,7 +51,7 @@ function createHTML() {
         <a href="product.html?id=${id}" class="prod_name">${game.name}</a>
         <div class="products_buy">
           <p class="price">${game.price_html}</p>
-          <div><button class="button add-to-cart" data-game="${game.name}">buy</button></div>
+          <div><button class="button add-to-cart" data-product="${game.id}">Buy</button></div>
         </div>
       </div>
     </div>`;

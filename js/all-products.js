@@ -22,16 +22,16 @@ async function getAllProducts(url) {
 
     for (let i = 0; i < products.length; i++) {
       game = products[i];
-
       productArr.push(game);
-
-      createHTMLAll(productArr);
     }
+
+    createHTMLAll(productArr);
 
     const buttons = document.querySelectorAll(".add-to-cart");
     buttons.forEach(function (button) {
-      button.onclick = function (event) {
-        const addItems = products.find(item => item.id === event.target.dataset.product);
+      button.onclick = async function (event) {
+        const addItems = products.find(item => item.id === parseInt(event.target.dataset.product));
+
         productsCart.push(addItems);
         localStorage.setItem("cart", JSON.stringify(productsCart));
       }
@@ -48,12 +48,13 @@ getAllProducts("https://gamehub-maria.digital/wp-json/wc/store/products");
 function createHTMLAll(prodArray) {
   container.innerHTML = "";
   prodArray.forEach(function (game) {
+    console.log(game, "hello");
     container.innerHTML +=
       `<div class="product">
       <a href="product.html?id=${game.id}"><img src="${game.images[0].src}" class="img-product"></a>
       <div class="sub-content">
         <a href="product.html?id=${game.id}">${game.name}</a>
-        <p class="price">${game.prices.price}</p>
+        <p class="price">${game.price_html}</p>
         <button class="button add-to-cart" data-product="${game.id}">Buy</button>
       </div>
     </div>`;
