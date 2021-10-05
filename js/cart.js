@@ -6,7 +6,7 @@ const sumTotal = document.querySelector(".total-sum");
 
 let productsCart = [];
 
-if (JSON.parse(localStorage.getItem("cart")) === null) {
+if (JSON.parse(localStorage.getItem("cart")).includes(null)) {
   productsCart = [];
   console.log("Tomt");
 }
