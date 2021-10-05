@@ -1,7 +1,6 @@
 const mainSection = document.querySelector(".main-content");
-const cartItems = JSON.parse(localStorage.getItem("cart"));
-
-console.log(localStorage);
+const containerNew = document.querySelector(".new-releases");
+const containerUsed = document.querySelector(".used-games");
 
 async function getProducts(url) {
 
@@ -21,16 +20,27 @@ async function getProducts(url) {
       }
     }
 
+    addProducts();
     const buttons = document.querySelectorAll(".add-to-cart");
+
     buttons.forEach(function (button) {
       button.onclick = function (event) {
         const addItems = products.find(item => item.id === parseInt(event.target.dataset.product));
+
         productsCart.push(addItems);
         localStorage.setItem("cart", JSON.stringify(productsCart));
-        window.location.href = window.location.href;
+
+        cart.innerHTML = "";
+        price = 0;
+        total = 0;
+        addProducts();
+
+        cartContainer.style.display = "block";
+        setTimeout(() => {
+          cartContainer.style.display = "none";
+        }, 5000);
       }
     });
-
   } catch (error) {
     console.log("ERROR:" + error);
     mainSection.innerHTML += errorMessage();

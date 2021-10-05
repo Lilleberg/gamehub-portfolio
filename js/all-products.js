@@ -3,29 +3,25 @@ const buttonLowToHigh = document.querySelector(".lowhigh");
 let newBox = document.querySelector("#new");
 let used = document.querySelector("#used");
 const removeFilters = document.querySelector(".remove-filters");
-const cartItems = JSON.parse(localStorage.getItem("cart"));
 
 let productArr = [];
 let usedArr = [];
 let newArr = [];
-let game;
 let usedClicked = false;
 let newClicked = false;
 
 async function getAllProducts(url) {
-
   try {
-    game = [];
     productArr = [];
     const response = await fetch(url);
     const products = await response.json();
 
     for (let i = 0; i < products.length; i++) {
-      game = products[i];
-      productArr.push(game);
+      productArr.push(products[i]);
     }
+    createHTML(productArr);
 
-    createHTMLAll(productArr);
+    addProducts();
 
     const buttons = document.querySelectorAll(".add-to-cart");
     buttons.forEach(function (button) {
@@ -34,6 +30,16 @@ async function getAllProducts(url) {
 
         productsCart.push(addItems);
         localStorage.setItem("cart", JSON.stringify(productsCart));
+
+        cart.innerHTML = "";
+        price = 0;
+        total = 0;
+        addProducts();
+
+        cartContainer.style.display = "block";
+        setTimeout(() => {
+          cartContainer.style.display = "none";
+        }, 5000);
       }
     });
 
@@ -45,10 +51,9 @@ async function getAllProducts(url) {
 
 getAllProducts("https://gamehub-maria.digital/wp-json/wc/store/products");
 
-function createHTMLAll(prodArray) {
+function createHTML(prodArray) {
   container.innerHTML = "";
   prodArray.forEach(function (game) {
-    console.log(game, "hello");
     container.innerHTML +=
       `<div class="product">
       <a href="product.html?id=${game.id}"><img src="${game.images[0].src}" class="img-product"></a>

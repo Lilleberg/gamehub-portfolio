@@ -1,5 +1,4 @@
 const productContainer = document.querySelector(".main-content");
-const cartItems = JSON.parse(localStorage.getItem("cart"));
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
@@ -17,6 +16,7 @@ fetch(url)
   .catch(error => productContainer.innerHTML = errorMessage());
 
 function getProduct(results) {
+
   document.title = `Game Hub | ${results.name}`;
 
   let arr = [];
@@ -26,9 +26,33 @@ function getProduct(results) {
   }
   const category = arr.join(", ");
 
-  if (results.tags[0].name === "used") {
-    productContainer.innerHTML =
-      `<div class="page-title">
+  if (results.tags[0].name === "used") createHTMLUsed(results, category);
+  if (results.tags[0].name === "new") createHTMLNew(results, category);
+
+  addProducts();
+  const button = document.querySelector(".add-to-cart");
+
+  button.onclick = function (event) {
+    const addItems = event.target.dataset.product;
+    console.log(event.target.dataset.product);
+    productsCart.push(addItems);
+    localStorage.setItem("cart", JSON.stringify(productsCart));
+
+    cart.innerHTML = "";
+    price = 0;
+    total = 0;
+    addProducts();
+
+    cartContainer.style.display = "block";
+    setTimeout(() => {
+      cartContainer.style.display = "none";
+    }, 5000);
+  }
+}
+
+function createHTMLUsed(results, category) {
+  productContainer.innerHTML =
+    `<div class="page-title">
       <h1>${results.name}</h1>
       <div class="categories">
         <p style.zIndex="-1">${category}<p>
@@ -41,7 +65,7 @@ function getProduct(results) {
     </div>
     <div class="payment-info">
       <p class="price">${results.price_html}</p>
-      <button class="button add-to-cart" data-game="${results.name}" data-price="${results.prices.price}" data-image="${results.images[0].src}">Add to cart</button>
+      <button class="button add-to-cart" data-product="${results.id}">${results.add_to_cart.text}</button>
       <div>
         <p>Payment methods</p>
         <p>Credit card</p>
@@ -73,11 +97,11 @@ function getProduct(results) {
         <p>Message seller</p>
       </div>
     </div>`;
-  }
+}
 
-  if (results.tags[0].name === "new") {
-    productContainer.innerHTML =
-      `<div class="page-title">
+function createHTMLNew(results, category) {
+  productContainer.innerHTML =
+    `<div class="page-title">
       <h1>${results.name}</h1>
       <div class="categories">
         <p>${category}<p>
@@ -90,13 +114,12 @@ function getProduct(results) {
     </div>
     <div class="payment-info">
       <p class="price">${results.price_html}</p>
-      <button class="button add-to-cart" data-game="${results.name}" data-price="${results.prices.price}" data-image="${results.images[0].src}">Add to cart</button>
+      <button class="button add-to-cart" data-product="${results.id}">${results.add_to_cart.text}</button>
       <div>
         <p>Payment methods</p>
         <p>Credit card</p>
         <p>Debit card</p>
         <p>Vipps</p>
       </div>
-    </div>`
-  }
+    </div>`;
 }

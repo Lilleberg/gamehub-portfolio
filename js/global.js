@@ -1,6 +1,7 @@
 const menu = document.querySelector(".navbar");
 const hambIcon = document.querySelector("#hamburger-menu");
 const cartIcon = document.querySelector("#cart-icon");
+const cartContainer = document.querySelector(".cart-container");
 
 hambIcon.onclick = function () {
   if (menu.style.display === "block") {
