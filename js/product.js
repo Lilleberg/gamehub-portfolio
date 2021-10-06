@@ -33,9 +33,8 @@ function getProduct(results) {
   const button = document.querySelector(".add-to-cart");
 
   button.onclick = function (event) {
-    const addItems = event.target.dataset.product;
-    console.log(event.target.dataset.product);
-    productsCart.push(addItems);
+
+    productsCart.push(results);
     localStorage.setItem("cart", JSON.stringify(productsCart));
 
     cart.innerHTML = "";
