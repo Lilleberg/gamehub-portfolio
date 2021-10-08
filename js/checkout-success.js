@@ -16,7 +16,7 @@ cartItems.forEach(function (item) {
     </div>`;
 });
 
-let totalSum = 0;
+let totalSum = 29;
 totalSum += itemCost;
 
 costInfo.innerHTML +=
