@@ -18,7 +18,8 @@ fetch(url)
 function getProduct(results) {
 
   document.title = `Game Hub | ${results.name}`;
-  document.querySelector("meta[name='description']").setAttribute(`Product ${results.name}`, _desc);
+  document.querySelector("meta[name='description']").setAttribute("content", `Product ${results.name}`);
+
   let arr = [];
   const categories = results.categories;
   for (let i = 0; i < categories.length; i++) {
