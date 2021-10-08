@@ -9,9 +9,7 @@ let game = [];
 
 if (JSON.parse(localStorage.getItem("cart")).includes(null)) {
   productsCart = [];
-
-}
-else {
+} else {
   productsCart = JSON.parse(localStorage.getItem("cart"));
 }
 
@@ -25,6 +23,10 @@ function addProducts() {
       price = parseInt(game.prices.price);
       total += price;
       createHTMLCart();
+
+      let cartIconCounter = JSON.parse(localStorage.cart).length;
+      const amountInCart = document.querySelector(".amount-cart");
+      amountInCart.innerHTML = cartIconCounter;
     }
   }
 }

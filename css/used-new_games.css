@@ -1,0 +1,59 @@
+@import "imports/typography.css";
+@import "imports/desktop_global.css";
+
+.game-container {
+  display: flex;
+  gap: 40px;
+  margin: 40px 0;
+}
+
+.game {
+  max-width: 200px;
+  padding: 0;
+}
+
+h1 {
+  border-bottom: 3px solid;
+  padding-bottom: 5px;
+  width: 30%;
+}
+
+@media only screen and (max-width: 1150px) {
+  .top-header, .main-content, .footer-content {
+    margin: 10px 40px;
+  }
+
+  .game-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 70px;
+    justify-items: start;
+  }
+
+  h1 {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 901px) {
+  .game-container {
+    grid-template-columns: 1fr 1fr;
+    width: fit-content;
+    width: -moz-fit-content;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    width: 70%;
+  }
+
+  .game-container {
+    gap: 20px;
+  }
+
+  .main-content {
+    margin: 10px 20px;
+  }
+}

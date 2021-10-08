@@ -37,3 +37,14 @@ select, option, textarea, input {
   font-size: 1.2rem;
   font-style: italic;
 }
+
+.sub-content p {
+  margin: 10px 0;
+  font-weight: 400;
+}
+
+.sub-content a {
+  color: #eeedec;
+  font-size: 1.2em;
+  font-weight: 500;
+ }

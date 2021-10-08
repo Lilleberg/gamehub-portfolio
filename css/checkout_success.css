@@ -98,6 +98,7 @@ h2 {
 }
 
 .game {
+  padding: 5px 0;
   margin-bottom: 10px;
 }
 
@@ -105,7 +106,7 @@ h2 {
   text-align: center;
 }
 
-@media only screen and (min-width: 560px) and (max-width: 900px) {
+@media only screen and (max-width: 900px) {
 
   .main-content {
     padding: 10px;
@@ -113,8 +114,8 @@ h2 {
   }
 
   .info-line, .game {
-    grid-template-columns: 1fr 0.5fr 0.5fr;
-    gap: 20px;
+    grid-template-columns: 1fr auto auto;
+    gap: 40px;
   }
 }
 
@@ -131,38 +132,5 @@ h2 {
     background: none;
     border: none;
     padding: 0px;
-  }
-
-  .info {
-    display: grid;
-    grid-template: auto / auto 1fr;
-    gap: 30px;
-    justify-self: center;
-  }
-
-  .info-line, .game {
-    display: inline;
-    border: none;
-    justify-self: end;
-  }
-
-  .info-line {
-    margin-top: 0px;
-  }
-  
-  .info {
-    margin: 5px 0px;
-  }
-
-  .game {
-    justify-self: start;
-    margin: 0px;
-  }
-
-  .cost-info {
-    justify-self: center;
-    border-top: 2px solid;
-    margin-top: 30px;
-    padding: 10px 80px;
   }
 }

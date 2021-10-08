@@ -87,6 +87,11 @@ img {
   margin: 0px 100px;
 }
 
+.header-content {
+  display: flex;
+  gap: 10px;
+}
+
 /*
  -- CART --
 */
@@ -156,6 +161,21 @@ img {
 
 .total-sum p:last-of-type{
   font-weight: 400;
+}
+
+.cart-icon-container {
+  position: relative;
+}
+
+.cart-icon-container .amount-cart {
+  color: #fff;
+  background-color: red;
+  border-radius: 50%;
+  padding: 0px 6px;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  text-decoration: none;
 }
 
 /*
@@ -263,6 +283,10 @@ input:focus {
 .add-to-cart {
   font-size: 1rem;
   font-weight: 600;
+}
+
+.main-content {
+  min-height: calc(100vh - 400px);
 }
 
 /*

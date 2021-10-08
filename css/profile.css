@@ -172,8 +172,7 @@ h2, .left h3, .left p, .left div:first-child {
   .main-content {
     grid-template-columns: 1fr;
     column-gap: 0px;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin: 0 20px 0 20px;
   }
 
   .orders {

@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="description" content="Game Hub - Profile">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/96bb08a331.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/96bb08a331.js"
+    crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,400&family=Nunito+Sans:wght@300;400;600&display=swap"
@@ -20,29 +21,39 @@
   <header>
     <section class="top-header">
       <div class="header-logo">
-        <a href="index.html"><img src="images/GameHub_logo.png" alt="Game Hub Logo" class="logo"></a>
+        <a href="index.html"><img src="images/GameHub_logo.png"
+            alt="Game Hub Logo" class="logo"></a>
       </div>
 
       <div class="header-content">
         <a href="create_account.html" class="button sign-up">Sign up</a>
         <a href="create_account.html" class="button log-in">Log in</a>
-        <a href="#" id="cart-icon"><i class="fas fa-shopping-cart fa-2x"></i></a>
+        <div class="cart-icon-container">
+          <a href="#" id="cart-icon"><i
+              class="fas fa-shopping-cart fa-2x"></i></a>
+          <span class="amount-cart">
+            <!--number of items in cart-->
+          </span>
+        </div>
 
         <section class="cart-container">
           <p class="cart-heading">My cart:</p>
-          <div class="cart">
-          </div>
+          <div class="cart"></div>
           <div class="total-sum"></div>
-          <div><a href="checkout.html" class="button checkout">Proceed to checkout</a></div>
+          <div><a href="checkout.html" class="button checkout">Proceed to
+              checkout</a></div>
         </section>
 
-        <a href="profile.html" class="profile-icon"><i class="fas fa-user-circle fa-2x"></i></a>
+        <a href="profile.html" class="profile-icon"><i
+            class="fas fa-user-circle fa-2x"></i></a>
       </div>
     </section>
 
     <div class="search">
-      <input type="text" name="search-bar" placeholder="Search..." class="search-bar">
-      <a href="search_results.html" class="search-icon"><i class="fas fa-search fa-2x"></i></a>
+      <input type="text" name="search-bar" placeholder="Search..."
+        class="search-bar">
+      <a href="search_results.html" class="search-icon"><i
+          class="fas fa-search fa-2x"></i></a>
     </div>
 
     <a href="#" id="hamburger-menu"><i class="fas fa-bars"></i></a>
@@ -50,8 +61,8 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="all_products.html">All products</a></li>
-        <li><a>Used games</a></li>
-        <li><a>New Games</a></li>
+        <li><a href="used_games.html">Used games</a></li>
+        <li><a href="new_games.html">New Games</a></li>
         <li><a>Sell games</a></li>
         <li><a>News</a></li>
       </ul>
@@ -61,8 +72,8 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="all_products.html">All products</a></li>
-        <li><a>Used games</a></li>
-        <li><a>New Games</a></li>
+        <li><a href="used_games.html">Used games</a></li>
+        <li><a href="new_games.html">New Games</a></li>
         <li><a>Sell games</a></li>
         <li><a>News</a></li>
       </ul>
@@ -81,7 +92,7 @@
           <h3>Name</h3>
           <p>Ola Nordmann</p>
           <h3>Username</h3>
-          <p>OldaNordmann123</p>
+          <p>OlaNordmann123</p>
           <h3>E-mail</h3>
           <p>123@example.com</p>
           <h3>Country</h3>
@@ -100,11 +111,11 @@
       </div>
       <div>
         <div class="middle">
-          <div class="orders">
+          <section class="orders">
             <h2>My orders</h2>
             <p>You have no orders</p>
-          </div>
-          <div class="listings">
+          </section>
+          <section class="listings">
             <h2>My listings</h2>
             <div>
               <img src="images/cod.jpg" alt="product image CoD Blops">
@@ -114,12 +125,11 @@
               <p>PS3</p>
               <p>Edit listing</p>
             </div>
-          </div>
+          </section>
         </div>
       </div>
       <div class="grid-right">
-        <div class="right">
-          <!-- Only new games can be added to favourites -->
+        <section class="right">
           <h2>My favourites</h2>
           <div>
             <img src="images/minecraft.jpg" alt="Product image MC">
@@ -129,7 +139,7 @@
             <p>PS4</p>
             <p>Remove</p>
           </div>
-        </div>
+        </section>
       </div>
     </section>
   </main>

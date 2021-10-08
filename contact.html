@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="description" content="Game Hub - Contact us, we can help!">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/96bb08a331.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/96bb08a331.js"
+    crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,400&family=Nunito+Sans:wght@300;400;600&display=swap"
@@ -20,29 +21,40 @@
   <header>
     <section class="top-header">
       <div class="header-logo">
-        <a href="index.html"><img src="images/GameHub_logo.png" alt="Game Hub Logo" class="logo"></a>
+        <a href="index.html"><img src="images/GameHub_logo.png"
+            alt="Game Hub Logo" class="logo"></a>
       </div>
 
       <div class="header-content">
         <a href="create_account.html" class="button sign-up">Sign up</a>
         <a href="create_account.html" class="button log-in">Log in</a>
-        <a href="#" id="cart-icon"><i class="fas fa-shopping-cart fa-2x"></i></a>
+        <div class="cart-icon-container">
+          <a href="#" id="cart-icon"><i
+              class="fas fa-shopping-cart fa-2x"></i></a>
+          <span class="amount-cart">
+            <!--number of items in cart-->
+          </span>
+        </div>
 
         <section class="cart-container">
           <p class="cart-heading">My cart:</p>
           <div class="cart">
           </div>
           <div class="total-sum"></div>
-          <div><a href="checkout.html" class="button checkout">Proceed to checkout</a></div>
+          <div><a href="checkout.html" class="button checkout">Proceed to
+              checkout</a></div>
         </section>
 
-        <a href="profile.html" class="profile-icon"><i class="fas fa-user-circle fa-2x"></i></a>
+        <a href="profile.html" class="profile-icon"><i
+            class="fas fa-user-circle fa-2x"></i></a>
       </div>
     </section>
 
     <div class="search">
-      <input type="text" name="search-bar" placeholder="Search..." class="search-bar">
-      <a href="search_results.html" class="search-icon"><i class="fas fa-search fa-2x"></i></a>
+      <input type="text" name="search-bar" placeholder="Search..."
+        class="search-bar">
+      <a href="search_results.html" class="search-icon"><i
+          class="fas fa-search fa-2x"></i></a>
     </div>
 
     <a href="#" id="hamburger-menu"><i class="fas fa-bars"></i></a>
@@ -110,22 +122,26 @@
             <span>Full name or username</span>
             <input type="text" name="name" id="name">
           </label>
-          <div class="form-error nameError">*Please enter a valid name</div>
+          <div class="form-error nameError">*Please enter a valid name
+          </div>
         </div>
 
         <div>
           <label class="form-label">
-            <span>Email address<span class="requirement">123@example.com</span></span>
+            <span>Email address<span
+                class="requirement">123@example.com</span></span>
             <input type="email" name="email" id="email">
           </label>
-          <div class="form-error emailError">*Please enter a valid email address</div>
+          <div class="form-error emailError">*Please enter a valid email
+            address</div>
         </div>
 
         <div>
           <label class="form-label">
             <span>Subject</span>
             <select name="subject" id="subject">
-              <option value="defaultValue" disabled selected>Select a subject</option>
+              <option value="defaultValue" disabled selected>Select a
+                subject</option>
               <option value="used-games">Used games</option>
               <option value="new-games">New games</option>
               <option value="account">Account</option>
@@ -133,15 +149,18 @@
               <option value="other">Other</option>
             </select>
           </label>
-          <div class="form-error subjectError">*Please choose a subject</div>
+          <div class="form-error subjectError">*Please choose a subject
+          </div>
         </div>
 
         <div>
           <label class="form-label">
-            <span>Request<span class="requirement">min. 20 characters</span></span>
+            <span>Request<span class="requirement">min. 20
+                characters</span></span>
             <textarea name="request" id="request" rows="10"></textarea>
           </label>
-          <div class="form-error requestError">*Request must be at least 20 characters long</div>
+          <div class="form-error requestError">*Request must be at least 20
+            characters long</div>
         </div>
 
         <button type="submit" class="button submit" disabled>Send</button>
