@@ -18,3 +18,9 @@ cartIcon.onclick = function () {
     cartContainer.style.display = "block";
   }
 }
+
+addProducts();
+cart.innerHTML = "";
+price = 0;
+total = 0;
+addProducts();

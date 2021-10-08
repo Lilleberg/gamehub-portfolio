@@ -1,5 +1,4 @@
 const productContainer = document.querySelector(".main-content");
-
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
@@ -18,7 +17,7 @@ fetch(url)
 function getProduct(results) {
 
   document.title = `Game Hub | ${results.name}`;
-  document.querySelector("meta[name='description']").setAttribute("content", `Product ${results.name}`);
+  document.querySelector('meta[name="description"]').setAttribute("content", `Product ${results.name}`);
 
   let arr = [];
   const categories = results.categories;
